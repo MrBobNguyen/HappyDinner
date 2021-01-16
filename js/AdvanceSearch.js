@@ -53,6 +53,10 @@ $("#AdvanceSearch").on("click",function(event){
         $("#MainSearch").append('<div id="cardmodalmeal" class="w3-modal-content w3-animate-zoom w3-card-4" title="Close Modal" ><div>')
         
         if (themealdbDATA.meals!=null){
+            //History save
+            MealCount+=1;
+            localStorage.setItem("Meal"+MealCount,themealdbDATA.meals[0].idMeal);
+            localStorage.setItem("MealCount",MealCount)
             //close button
             var closebutton='<span type="button" id="closebuttonmeal" class="w3-button w3-display-topright">×</span>';
             let cardmodal=$("#cardmodalmeal")
@@ -181,6 +185,8 @@ $("#AdvanceSearch").on("click",function(event){
         console.log("click")
         $("#AdvanceCondition").remove()
         $("#AdvanceSearch").removeAttr("disabled")
+        $("#GetYourMeal").removeAttr("disabled")
+        $("#GetYourMovie").removeAttr("disabled")
         $("#AdvanceZone").append('<div class="row"  id="AdvanceCondition"></div>')
     })
     

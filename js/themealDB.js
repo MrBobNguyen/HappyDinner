@@ -9,20 +9,23 @@ function makeURL(){
 }
 
 function updatePageMeal(themealdbDATA){
-    
-	
+    //History save
+    MealCount+=1;
+    localStorage.setItem("Meal"+MealCount,themealdbDATA.meals[0].idMeal);
+    localStorage.setItem("MealCount",MealCount)
+    console.log(localStorage.getItem("MealCount"))
     $("#MainSearch").append('<div id="cardmodalmeal" class="w3-modal-content w3-animate-zoom w3-card-4" title="Close Modal" ><div>')
     //close button
     var closebutton='<span type="button" id="closebuttonmeal" class="w3-button w3-display-topright">×</span>';
     let cardmodal=$("#cardmodalmeal")
     cardmodal.append(closebutton);
     //Title
+    cardmodal.append('<p><br></p>')
     cardmodal.append('<div id="MealTitle">'+ themealdbDATA.meals[0].strMeal + '<div>')
     //Thumbnail
     var imageURL= themealdbDATA.meals[0].strMealThumb +"/preview";
     var image = $('<img id="Meal Img">');
     image.attr('src',imageURL);
-    console.log(imageURL)
     cardmodal.append(image);
     //Instruction
     var tempInstruction =themealdbDATA.meals[0].strInstructions;

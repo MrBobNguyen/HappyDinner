@@ -23,6 +23,11 @@ function makeomdbURL(){
 }
 
 function updatePageMovie(omdbDATA){
+    //History movie
+    MovieCount+=1;
+    localStorage.setItem("Movie"+MovieCount,omdbDATA.imdbID)
+    localStorage.setItem("MovieCount",MovieCount)
+
     $("#MainSearch").append('<div id="cardmodalmovie" class="w3-modal-content w3-animate-zoom w3-card-4" title="Close Modal" ></div>')
     //close button
     var closebutton='<span type="button" id="closebuttonmovie" class="w3-button w3-display-topright">×</span>';
