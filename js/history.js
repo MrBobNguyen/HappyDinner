@@ -36,7 +36,7 @@ function updatePageHistoryMeal(themealdbDATA){
         }
     }
 
-    cardmodal.append("<br> <p id='instruction_fonts'>Instruction: </p>"+ instruction)
+    cardmodal.append("<br> <p id='instruction_fonts' class='flow-text'>Instruction: <br>"+ instruction+"</p>")
     //Ingredients
     cardmodal.append("<br> <p id='ingredients_fonts'>Ingredients: </p>")
     for (var i=1; i<=20; i++){
@@ -117,8 +117,10 @@ $("#HistoryButton").on("click",function(event){
     $("#GetYourMeal").attr("disabled","disabled")
     $("#GetYourMovie").attr("disabled","disabled")
     var History=$("#HistoryPlace")
-
-
+    History.append('<div class="row" id="HistoryName"></div>');
+    let HistoryName=$("#HistoryName");
+    HistoryName.append('<div class="col s6 center"><h3 class="red-text text-darken-2">Meal</h3></div>')
+    HistoryName.append('<div class="col s6 center"><h3 class="red-text text-darken-2">Movie</h3></div>')
 
 
     

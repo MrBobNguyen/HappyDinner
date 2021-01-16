@@ -94,7 +94,7 @@ $("#AdvanceSearch").on("click",function(event){
             }
         
     
-            cardmodal.append("<br> <p id='instruction_fonts'>Instruction: </p>"+ instruction)
+            cardmodal.append("<br> <p id='instruction_fonts' class='flow-text'>Instruction: <br>"+ instruction+"</p>")
             //Ingredients
             cardmodal.append("<br> <p id='ingredients_fonts'>Ingredients: </p>")
             for (var i=1; i<=20; i++){
