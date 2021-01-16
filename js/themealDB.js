@@ -20,7 +20,7 @@ function updatePageMeal(themealdbDATA){
             let iTemp=i+1;
             let tempIDMeal=localStorage.getItem("IDMeal"+iTemp)
             let tempMeal=localStorage.getItem("Meal"+iTemp)
-            localStorage.setItem("Meal"+MealCount,tempMeal);
+            localStorage.setItem("Meal"+i,tempMeal);
             localStorage.setItem("IDMeal"+i,tempIDMeal)
         }
         localStorage.setItem("Meal"+MealCount,themealdbDATA.meals[0].strMeal);

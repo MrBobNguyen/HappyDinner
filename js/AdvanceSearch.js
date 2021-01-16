@@ -62,10 +62,11 @@ $("#AdvanceSearch").on("click",function(event){
                 localStorage.setItem("MealCount",MealCount)
             }else{
                 for (let i=1;i<5;i++){
+                    
                     let iTemp=i+1;
                     let tempIDMeal=localStorage.getItem("IDMeal"+iTemp)
                     let tempMeal=localStorage.getItem("Meal"+iTemp)
-                    localStorage.setItem("Meal"+MealCount,tempMeal);
+                    localStorage.setItem("Meal"+i,tempMeal);
                     localStorage.setItem("IDMeal"+i,tempIDMeal)
                 }
                 localStorage.setItem("Meal"+MealCount,themealdbDATA.meals[0].strMeal);
@@ -81,7 +82,6 @@ $("#AdvanceSearch").on("click",function(event){
             var imageURL= themealdbDATA.meals[0].strMealThumb +"/preview";
             var image = $('<img id="Meal Img">');
             image.attr('src',imageURL);
-            console.log(imageURL)
             cardmodal.append(image);
             //Instruction
             var tempInstruction =themealdbDATA.meals[0].strInstructions;
@@ -128,7 +128,6 @@ $("#AdvanceSearch").on("click",function(event){
         $(this).attr("disabled","disabled")
        
         var queryURL=makeAdMealURL();
-        console.log(queryURL)
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -140,9 +139,26 @@ $("#AdvanceSearch").on("click",function(event){
     //Advance Movie Page
 
     function updatePageADMovie(omdbDATA){
+        //History movie
+        if(MovieCount<5){
+            MovieCount+=1;
+            localStorage.setItem("Movie"+MovieCount,omdbDATA.Title)
+            localStorage.setItem("IDMovie"+MovieCount,omdbDATA.imdbID);
+            localStorage.setItem("MovieCount",MovieCount)
+        }else{
+            for (let i=1;i<5;i++){
+                let iTemp=i+1;
+                let tempIDMovie=localStorage.getItem("IDMovie"+iTemp)
+                let tempMovieTitle=localStorage.getItem("Movie"+iTemp)
+                localStorage.setItem("IDMovie"+i,tempIDMovie)
+                localStorage.setItem("Movie"+i,tempMovieTitle)
+            }
+            localStorage.setItem("Movie5",omdbDATA.imdbID)
+            localStorage.setItem("Movie"+MovieCount,omdbDATA.Title)
+        }
+
         $("#MainSearch").append('<div id="cardmodalmovie" class="w3-modal-content w3-animate-zoom w3-card-4" title="Close Modal" ></div>')
         if (omdbDATA.Error!="Movie not found!"){
-            console.log(omdbDATA)
             //close button
             var closebutton='<span type="button" id="closebuttonmovie" class="w3-button w3-display-topright">×</span>';
             let cardmodal=$("#cardmodalmovie")
@@ -178,7 +194,6 @@ $("#AdvanceSearch").on("click",function(event){
         event.preventDefault();
         $(this).attr("disabled","disabled")
         var queryURL=makeAdomdbURL();
-        console.log(queryURL)
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -196,11 +211,13 @@ $("#AdvanceSearch").on("click",function(event){
 
     $("#CloseAdvanceButton").on("click",function(event){
         event.preventDefault();
-        console.log("click")
         $("#AdvanceCondition").remove()
+        $("#cardmodalmovie").remove()
+        $("#cardmodalmeal").remove()
         $("#AdvanceSearch").removeAttr("disabled")
         $("#GetYourMeal").removeAttr("disabled")
         $("#GetYourMovie").removeAttr("disabled")
+        $("#HistoryButton").removeAttr("disabled")
         $("#AdvanceZone").append('<div class="row"  id="AdvanceCondition"></div>')
     })
     

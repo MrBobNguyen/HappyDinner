@@ -1,6 +1,6 @@
 function makeid(length) {
    var result           = '';
-   var characters       = 'abcdefghijklmnopqrstuvwxyz0123456789';
+   var characters       = 'abcdefghijklmnopqrstuvwxyz';
    var charactersLength = characters.length;
    for ( var i = 0; i < length; i++ ) {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
@@ -83,7 +83,6 @@ $("#GetYourMovie").on("click",function(event){
     $(this).attr("disabled","disabled")
     $("#AdvanceSearch").attr("disabled","disabled")
     var queryURL=makeomdbURL();
-    console.log(queryURL)
     $.ajax({
         url: queryURL,
         method: "GET"
