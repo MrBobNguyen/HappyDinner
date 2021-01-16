@@ -153,7 +153,7 @@ $("#AdvanceSearch").on("click",function(event){
                 localStorage.setItem("IDMovie"+i,tempIDMovie)
                 localStorage.setItem("Movie"+i,tempMovieTitle)
             }
-            localStorage.setItem("Movie5",omdbDATA.imdbID)
+            localStorage.setItem("IDMovie5",omdbDATA.imdbID)
             localStorage.setItem("Movie"+MovieCount,omdbDATA.Title)
         }
 
