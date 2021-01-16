@@ -26,7 +26,6 @@ $("#AdvanceSearch").on("click",function(event){
     $("#AdvanceSearch").attr("disabled","disabled")
     $("#GetYourMeal").attr("disabled","disabled")
     $("#GetYourMovie").attr("disabled","disabled")
-
     var Advance=$("#AdvanceCondition")
     Advance.append('<div class="row" id="AdMealSearchRow"></div>');
 
@@ -144,7 +143,8 @@ $("#AdvanceSearch").on("click",function(event){
             cardmodal.append('<h4> Runtime: '+omdbDATA.Runtime+'</h4>')
             //Genre
             cardmodal.append('<h4> Genre: '+omdbDATA.Genre+'</h4>')
-        
+            //Country
+            cardmodal.append('<h4> Country: '+omdbDATA.Country+'</h4>')
         
             //Close Button
             $("#closebuttonmovie").on("click",function(event){
@@ -169,6 +169,20 @@ $("#AdvanceSearch").on("click",function(event){
 
 
 
+    //Advance Search Close button
+    Advance.append('<div class="row" id="CloseRow"></div>');
+    var CloseRow=$("#CloseRow")
+    CloseRow.append('<div class="col s12 center" id="CloseAdvance"></div>')
+    $("#CloseAdvance").append("<a class='waves-effect waves-light btn-large' id='CloseAdvanceButton'><i class='material-icons right'>close</i>Close</a>")
+
+
+    $("#CloseAdvanceButton").on("click",function(event){
+        event.preventDefault();
+        console.log("click")
+        $("#AdvanceCondition").remove()
+        $("#AdvanceSearch").removeAttr("disabled")
+        $("#AdvanceZone").append('<div class="row"  id="AdvanceCondition"></div>')
+    })
     
 });
 

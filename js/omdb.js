@@ -42,7 +42,9 @@ function updatePageMovie(omdbDATA){
     cardmodal.append('<h4> Runtime: '+omdbDATA.Runtime+'</h4>')
     //Genre
     cardmodal.append('<h4> Genre: '+omdbDATA.Genre+'</h4>')
-
+    //Country
+    cardmodal.append('<h4> Country: '+omdbDATA.Country+'</h4>')
+        
 
     //Close Button
     $("#closebuttonmovie").on("click",function(event){
