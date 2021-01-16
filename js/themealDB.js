@@ -10,10 +10,22 @@ function makeURL(){
 
 function updatePageMeal(themealdbDATA){
     //History save
-    MealCount+=1;
-    localStorage.setItem("Meal"+MealCount,themealdbDATA.meals[0].idMeal);
-    localStorage.setItem("MealCount",MealCount)
-    console.log(localStorage.getItem("MealCount"))
+    if(MealCount<5){
+        MealCount+=1;
+        localStorage.setItem("Meal"+MealCount,themealdbDATA.meals[0].strMeal);
+        localStorage.setItem("IDMeal"+MealCount,themealdbDATA.meals[0].idMeal);
+        localStorage.setItem("MealCount",MealCount)
+    }else{
+        for (let i=1;i<5;i++){
+            let iTemp=i+1;
+            let tempIDMeal=localStorage.getItem("IDMeal"+iTemp)
+            let tempMeal=localStorage.getItem("Meal"+iTemp)
+            localStorage.setItem("Meal"+MealCount,tempMeal);
+            localStorage.setItem("IDMeal"+i,tempIDMeal)
+        }
+        localStorage.setItem("Meal"+MealCount,themealdbDATA.meals[0].strMeal);
+        localStorage.setItem("IDMeal5",themealdbDATA.meals[0].idMeal)
+    }
     $("#MainSearch").append('<div id="cardmodalmeal" class="w3-modal-content w3-animate-zoom w3-card-4" title="Close Modal" ><div>')
     //close button
     var closebutton='<span type="button" id="closebuttonmeal" class="w3-button w3-display-topright">×</span>';

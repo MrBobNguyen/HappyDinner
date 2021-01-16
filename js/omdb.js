@@ -17,16 +17,31 @@ function makeomdbURL(){
     // var inputSearch = $("#input")
     // .val()
     // .trim();
-    var inputSearch="y=2020&t="+makeid(1);
+    var randomYear=Math.floor(Math.random() * 5);
+    var year=2020-randomYear
+    var inputSearch="y="+year+"&t="+makeid(1);
     var realURL= queryURL+inputSearch;
     return realURL;
 }
 
 function updatePageMovie(omdbDATA){
     //History movie
-    MovieCount+=1;
-    localStorage.setItem("Movie"+MovieCount,omdbDATA.imdbID)
-    localStorage.setItem("MovieCount",MovieCount)
+    if(MovieCount<5){
+        MovieCount+=1;
+        localStorage.setItem("Movie"+MovieCount,omdbDATA.Title)
+        localStorage.setItem("IDMovie"+MovieCount,omdbDATA.imdbID);
+        localStorage.setItem("MovieCount",MovieCount)
+    }else{
+        for (let i=1;i<5;i++){
+            let iTemp=i+1;
+            let tempIDMovie=localStorage.getItem("IDMovie"+iTemp)
+            let tempMovieTitle=localStorage.getItem("Movie"+iTemp)
+            localStorage.setItem("IDMovie"+i,tempIDMovie)
+            localStorage.setItem("Movie"+i,tempMovieTitle)
+        }
+        localStorage.setItem("Movie5",omdbDATA.imdbID)
+        localStorage.setItem("Movie"+MovieCount,omdbDATA.Title)
+    }
 
     $("#MainSearch").append('<div id="cardmodalmovie" class="w3-modal-content w3-animate-zoom w3-card-4" title="Close Modal" ></div>')
     //close button

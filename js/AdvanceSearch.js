@@ -26,6 +26,7 @@ $("#AdvanceSearch").on("click",function(event){
     $("#AdvanceSearch").attr("disabled","disabled")
     $("#GetYourMeal").attr("disabled","disabled")
     $("#GetYourMovie").attr("disabled","disabled")
+    $("#HistoryButton").attr("disabled","disabled")
     var Advance=$("#AdvanceCondition")
     Advance.append('<div class="row" id="AdMealSearchRow"></div>');
 
@@ -53,10 +54,23 @@ $("#AdvanceSearch").on("click",function(event){
         $("#MainSearch").append('<div id="cardmodalmeal" class="w3-modal-content w3-animate-zoom w3-card-4" title="Close Modal" ><div>')
         
         if (themealdbDATA.meals!=null){
-            //History save
-            MealCount+=1;
-            localStorage.setItem("Meal"+MealCount,themealdbDATA.meals[0].idMeal);
-            localStorage.setItem("MealCount",MealCount)
+           //History save
+            if(MealCount<5){
+                MealCount+=1;
+                localStorage.setItem("Meal"+MealCount,themealdbDATA.meals[0].strMeal);
+                localStorage.setItem("IDMeal"+MealCount,themealdbDATA.meals[0].idMeal);
+                localStorage.setItem("MealCount",MealCount)
+            }else{
+                for (let i=1;i<5;i++){
+                    let iTemp=i+1;
+                    let tempIDMeal=localStorage.getItem("IDMeal"+iTemp)
+                    let tempMeal=localStorage.getItem("Meal"+iTemp)
+                    localStorage.setItem("Meal"+MealCount,tempMeal);
+                    localStorage.setItem("IDMeal"+i,tempIDMeal)
+                }
+                localStorage.setItem("Meal"+MealCount,themealdbDATA.meals[0].strMeal);
+                localStorage.setItem("IDMeal5",themealdbDATA.meals[0].idMeal)
+            }
             //close button
             var closebutton='<span type="button" id="closebuttonmeal" class="w3-button w3-display-topright">×</span>';
             let cardmodal=$("#cardmodalmeal")
@@ -177,7 +191,7 @@ $("#AdvanceSearch").on("click",function(event){
     Advance.append('<div class="row" id="CloseRow"></div>');
     var CloseRow=$("#CloseRow")
     CloseRow.append('<div class="col s12 center" id="CloseAdvance"></div>')
-    $("#CloseAdvance").append("<a class='waves-effect waves-light btn-large' id='CloseAdvanceButton'><i class='material-icons right'>close</i>Close</a>")
+    $("#CloseAdvance").append("<a class='waves-effect waves-light red btn-large' id='CloseAdvanceButton'><i class='material-icons right'>close</i>Close</a>")
 
 
     $("#CloseAdvanceButton").on("click",function(event){
