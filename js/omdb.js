@@ -12,7 +12,7 @@ function makeid(length) {
 
 
 function makeomdbURL(){
-    var queryURL="http://www.omdbapi.com/?apikey=e0f5e6bf&";
+    var queryURL="https://www.omdbapi.com/?apikey=e0f5e6bf&";
 
     // var inputSearch = $("#input")
     // .val()

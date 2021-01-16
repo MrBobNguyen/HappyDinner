@@ -7,7 +7,7 @@ function makeAdMealURL(){
     return queryURL+inputSearch;
 }
 function makeAdomdbURL(){
-    var queryURL="http://www.omdbapi.com/?apikey=e0f5e6bf&";
+    var queryURL="https://www.omdbapi.com/?apikey=e0f5e6bf&";
 
     var inputSearch = $("#AdMovieInput")
      .val()
