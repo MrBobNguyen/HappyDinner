@@ -29,7 +29,7 @@ function updatePageMovie(omdbDATA){
     let cardmodal=$("#cardmodalmovie")
     cardmodal.append(closebutton);
     //Title
-    cardmodal.append('<p id="MovieTitle" ">'+omdbDATA.Title+'</p>')
+    cardmodal.append('<br> <p id="MovieTitle" ">'+omdbDATA.Title+'</p>')
     //Thumbnail
     cardmodal.append(' <img src=" ' + omdbDATA.Poster + '"></img>');
     //Year
