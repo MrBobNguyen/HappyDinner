@@ -35,11 +35,12 @@ function updatePageMovie(omdbDATA){
         for (let i=1;i<5;i++){
             let iTemp=i+1;
             let tempIDMovie=localStorage.getItem("IDMovie"+iTemp)
+            console.log(tempIDMovie)
             let tempMovieTitle=localStorage.getItem("Movie"+iTemp)
-            localStorage.setItem("IDMovie"+i,tempIDMovie)
             localStorage.setItem("Movie"+i,tempMovieTitle)
+            localStorage.setItem("IDMovie"+i,tempIDMovie)
         }
-        localStorage.setItem("Movie5",omdbDATA.imdbID)
+        localStorage.setItem("IDMovie"+MovieCount,omdbDATA.imdbID)
         localStorage.setItem("Movie"+MovieCount,omdbDATA.Title)
     }
 

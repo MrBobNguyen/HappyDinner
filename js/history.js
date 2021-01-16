@@ -108,6 +108,8 @@ if (isNaN(MovieCount)){
 }
 
 
+
+
 $("#HistoryButton").on("click",function(event){
     event.preventDefault();
     $("#HistoryButton").attr("disabled","disabled")
@@ -154,7 +156,14 @@ $("#HistoryButton").on("click",function(event){
                     event.preventDefault();
                     
                     $(".history-movie").attr("disabled","disabled")
+                    // console.log(localStorage.getItem("IDMovie1"))
+                    // console.log(localStorage.getItem("IDMovie2"))
+                    // console.log(localStorage.getItem("IDMovie3"))
+                    // console.log(localStorage.getItem("IDMovie4"))
+                    // console.log(localStorage.getItem("IDMovie5"))
+                    
                     let queryURL=makeomdbSearchURL(i);
+                    console.log(queryURL)
                     $.ajax({
                         url: queryURL,
                         method: "GET"
