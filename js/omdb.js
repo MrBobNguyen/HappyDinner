@@ -70,6 +70,7 @@ function updatePageMovie(omdbDATA){
     $("#closebuttonmovie").on("click",function(event){
         $("#GetYourMovie").removeAttr("disabled")
         $("#AdvanceSearch").removeAttr("disabled")
+        $("#HistoryButton").removeAttr("disabled")
         cardmodal.remove()
     })
     
@@ -82,6 +83,7 @@ $("#GetYourMovie").on("click",function(event){
     event.preventDefault();
     $(this).attr("disabled","disabled")
     $("#AdvanceSearch").attr("disabled","disabled")
+    $("#HistoryButton").attr("disabled","disabled")
     var queryURL=makeomdbURL();
     $.ajax({
         url: queryURL,

@@ -67,6 +67,7 @@ function updatePageMeal(themealdbDATA){
     $("#closebuttonmeal").on("click",function(event){
         $("#GetYourMeal").removeAttr("disabled")
         $("#AdvanceSearch").removeAttr("disabled")
+        $("#HistoryButton").removeAttr("disabled")
         cardmodal.remove()
     })
     
@@ -77,6 +78,7 @@ $("#GetYourMeal").on("click",function(event){
     event.preventDefault();
     $(this).attr("disabled","disabled")
     $("#AdvanceSearch").attr("disabled","disabled")
+    $("#HistoryButton").attr("disabled","disabled")
     var queryURL=makeURL();
     $.ajax({
         url: queryURL,
