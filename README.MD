@@ -11,14 +11,38 @@ User story:
 
 ## Description
 >**Our Website contain three main function: **<br>
->* The random meal and movie
+>* The random meal and movie([Go to screenshot](#screenshot))
 >* The advance search ([Go to future development](#future-development))
->* The history
+>* The history ([Go to screenshot](#screenshot))
 
 
 ## Technologies used
+>* Materialize CSS/Framwork [Materialize](https://materializecss.com/)
+>* Jquery [JQuery](https://jquery.com/)
+>* The MealDB API [TheMealDB](https://www.themealdb.com/)
+>* OMDB API [omdbAPI](http://www.omdbapi.com/)
 ## Screenshot
+* Default
+    ![Defaut](/Readme/Default.png)
+* Random Meal
+    ![RandomMeal](/Readme/Random_Meal.png)
+* Random Movie
+    ![RandomMovie](/Readme/Random_Movie.png)
+* Advance Search
+    ![AdvanceSearch](/Readme/AdvanceSearch.png)
+* History
+    ![History](/Readme/History.png)
+
+
+
 ## Link to deployed website
 
-# Future Development
+[HappyDinner](https://mrbobnguyen.github.io/HappyDinner/)
+
+## Future Development
+
+>Main focus is the advance search <br>
+>Give it more option such as: country, religions, age, diet condition, ...<br>
+>Polish the UI for better experience<br>
+>More contact information<br>
 
