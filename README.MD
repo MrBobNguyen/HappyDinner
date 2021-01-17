@@ -10,7 +10,15 @@ User story:
 
 
 ## Description
+>**Our Website contain three main function: **<br>
+>* The random meal and movie
+>* The advance search ([Go to future development](#future-development))
+>* The history
+
+
 ## Technologies used
 ## Screenshot
 ## Link to deployed website
+
+# Future Development
 
